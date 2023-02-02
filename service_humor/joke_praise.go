@@ -50,7 +50,6 @@ func randomJoke(fileName string) RedditJoke {
 
 func Joke() (*amuseme.JokeReply, error) {
 	// Random joke from dataset (json-file)
-	//var RedditJokes []*RedditJoke
 	redditJoke := randomJoke("./reddit_jokes.json")
 
 	return &amuseme.JokeReply{Title: redditJoke.Title, Body: redditJoke.Body}, nil
@@ -58,10 +57,10 @@ func Joke() (*amuseme.JokeReply, error) {
 
 func Meme() (*amuseme.MemeReply, error) {
 	err := godotenv.Load()
-  if err != nil {
-    log.Println("Error loading .env file")
+	if err != nil {
+		log.Println("Error loading .env file")
 		return &amuseme.MemeReply{}, err
-  }
+	}
 
 	// Random meme
 	url := "https://humor-jokes-and-memes.p.rapidapi.com/memes/random?media-type=image"
