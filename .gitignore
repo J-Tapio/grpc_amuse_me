@@ -1,0 +1,7 @@
+#env
+.env
+
+#misc
+.vscode
+Notes.md
+service_humor/reddit_jokes.json

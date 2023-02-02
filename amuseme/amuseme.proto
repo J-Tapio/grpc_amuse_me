@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+package amuseme;
+
+option go_package = "./gen/amuseme/";
+
+//import "google/protobuf/empty.proto";
+//google/protobuf/empty.proto issue, file not found
+//https://github.com/twitchtv/twirp/issues/104
+//=> incorrect go_package?
+// workaround with Empty message
+
+service AmuseMe {
+  rpc GetJoke(Empty) returns (JokeReply) {}
+  rpc GetMeme(Empty) returns (MemeReply) {}
+}
+
+message Empty {}
+
+message JokeReply {
+  string title = 1;
+  string body = 2;
+}
+
+message MemeReply {
+  string meme = 1;
+}
